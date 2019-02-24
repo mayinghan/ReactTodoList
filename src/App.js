@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Button, Row, Col, Input, List } from 'antd'
 import TodoItem from './TodoItem'
 
 class App extends Component {
@@ -54,8 +55,16 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <input value={this.state.inputValue} onChange={this.handleInputChange}></input>
-          <button onClick={this.handleBtnClick}>Add</button>
+          <h2>Todo List</h2>
+          <Row type="flex" justify="center" gutter={6}>
+            <Col span={6}>
+              <Input value={this.state.inputValue} onChange={this.handleInputChange} />
+            </Col>
+            <Col>
+              <Button type="primary" onClick={this.handleBtnClick}>Add</Button>
+            </Col>
+          </Row>
+          {/* <List>{this.getTodoItems}</List> */}
         </div>
         <ul>
           {this.getTodoItems()}
